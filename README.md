@@ -86,7 +86,3 @@ java -jar ./target/quarkus-app/quarkus-run.jar
 ```
 
 Navigate to <http://localhost:8080/index.html>
-
----
-
-**Good luck and have fun!** This is about demonstrating your understanding of production-grade patterns, not just writing code under pressure.
