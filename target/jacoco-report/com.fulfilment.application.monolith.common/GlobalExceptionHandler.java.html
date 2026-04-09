@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GlobalExceptionHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">java-code-assignment</a> &gt; <a href="index.source.html" class="el_package">com.fulfilment.application.monolith.common</a> &gt; <span class="el_source">GlobalExceptionHandler.java</span></div><h1>GlobalExceptionHandler.java</h1><pre class="source lang-java linenums">package com.fulfilment.application.monolith.common;
+
+import jakarta.persistence.OptimisticLockException;
+import jakarta.ws.rs.WebApplicationException;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.ext.ExceptionMapper;
+import jakarta.ws.rs.ext.Provider;
+import org.jboss.logging.Logger;
+
+@Provider
+<span class="nc" id="L11">public class GlobalExceptionHandler implements ExceptionMapper&lt;Exception&gt; {</span>
+
+<span class="nc" id="L13">  private static final Logger LOGGER = Logger.getLogger(GlobalExceptionHandler.class);</span>
+
+  @Override
+  public Response toResponse(Exception exception) {
+<span class="nc" id="L17">    LOGGER.error(&quot;Unhandled exception caught: &quot;, exception);</span>
+
+<span class="nc bnc" id="L19" title="All 2 branches missed.">    if (exception instanceof WebApplicationException) {</span>
+<span class="nc" id="L20">      return ((WebApplicationException) exception).getResponse();</span>
+    }
+
+<span class="nc bnc" id="L23" title="All 4 branches missed.">    if (exception instanceof OptimisticLockException || exception.getCause() instanceof OptimisticLockException) {</span>
+<span class="nc" id="L24">      return Response.status(Response.Status.CONFLICT)</span>
+<span class="nc" id="L25">          .entity(new ErrorResponse(&quot;Conflict&quot;, &quot;The resource was modified by another user. Please retry.&quot;))</span>
+<span class="nc" id="L26">          .build();</span>
+    }
+
+<span class="nc bnc" id="L29" title="All 2 branches missed.">    if (exception instanceof IllegalArgumentException) {</span>
+<span class="nc" id="L30">      return Response.status(Response.Status.BAD_REQUEST)</span>
+<span class="nc" id="L31">          .entity(new ErrorResponse(&quot;Bad Request&quot;, exception.getMessage()))</span>
+<span class="nc" id="L32">          .build();</span>
+    }
+
+<span class="nc" id="L35">    return Response.status(Response.Status.INTERNAL_SERVER_ERROR)</span>
+<span class="nc" id="L36">        .entity(new ErrorResponse(&quot;Internal Server Error&quot;, &quot;An unexpected error occurred.&quot;))</span>
+<span class="nc" id="L37">        .build();</span>
+  }
+
+  public static class ErrorResponse {
+    public String type;
+    public String message;
+
+<span class="nc" id="L44">    public ErrorResponse(String type, String message) {</span>
+<span class="nc" id="L45">      this.type = type;</span>
+<span class="nc" id="L46">      this.message = message;</span>
+<span class="nc" id="L47">    }</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
