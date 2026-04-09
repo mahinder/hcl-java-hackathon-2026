@@ -1,0 +1,16 @@
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\warehouses\adapters\WarehouseSearchTest.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\warehouses\domain\usecases\ReplaceWarehouseUseCaseTest.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\warehouses\adapters\WarehouseConcurrencyTest.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\stores\StoreTransactionIntegrationTest.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\stores\StoreEventObserverTest.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\warehouses\adapters\restapi\WarehouseEndpointIT.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\warehouses\domain\WarehouseValidationTest.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\products\ProductResourceTest.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\stores\StoreResourceTest.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\location\LocationGatewayTest.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\warehouses\adapters\WarehouseResourceTest.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\warehouses\domain\WarehouseOptimisticLockingTest.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\warehouses\domain\usecases\CreateWarehouseUseCaseTest.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\products\ProductEndpointTest.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\warehouses\adapters\WarehouseTestcontainersTest.java
+D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\src\test\java\com\fulfilment\application\monolith\warehouses\domain\usecases\ArchiveWarehouseUseCaseTest.java
