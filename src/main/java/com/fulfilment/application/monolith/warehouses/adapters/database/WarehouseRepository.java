@@ -13,13 +13,17 @@ import java.util.Map;
 @ApplicationScoped
 public class WarehouseRepository implements WarehouseStore, PanacheRepository<DbWarehouse> {
 
+  private static final org.jboss.logging.Logger LOG = org.jboss.logging.Logger.getLogger(WarehouseRepository.class);
+
   @Override
   public List<Warehouse> getAll() {
+    LOG.info("Getting all non-archived warehouses");
     return this.find("archivedAt IS NULL").list().stream().map(DbWarehouse::toWarehouse).toList();
   }
 
   @Override
   public void create(Warehouse warehouse) {
+    LOG.infof("Creating warehouse in DB: %s", warehouse.businessUnitCode);
     DbWarehouse dbWarehouse = new DbWarehouse();
     dbWarehouse.businessUnitCode = warehouse.businessUnitCode;
     dbWarehouse.location = warehouse.location;
@@ -33,6 +37,7 @@ public class WarehouseRepository implements WarehouseStore, PanacheRepository<Db
 
   @Override
   public void update(Warehouse warehouse) {
+    LOG.infof("Updating warehouse in DB: %s", warehouse.businessUnitCode);
     DbWarehouse dbWarehouse = find("businessUnitCode", warehouse.businessUnitCode).firstResult();
     
     if (dbWarehouse != null) {
@@ -47,8 +52,11 @@ public class WarehouseRepository implements WarehouseStore, PanacheRepository<Db
 
   @Override
   public void remove(Warehouse warehouse) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'remove'");
+    LOG.infof("Removing warehouse from DB: %s", warehouse.businessUnitCode);
+    DbWarehouse dbWarehouse = find("businessUnitCode", warehouse.businessUnitCode).firstResult();
+    if (dbWarehouse != null) {
+      this.delete(dbWarehouse);
+    }
   }
 
   @Override

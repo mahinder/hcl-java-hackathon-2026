@@ -188,6 +188,29 @@ public class WarehouseTestcontainersTest {
     assertEquals(2, results.size());
   }
 
+  @Test
+  @Transactional
+  public void testRemoveWarehouse() {
+    // Create first warehouse
+    Warehouse warehouse = new Warehouse();
+    warehouse.businessUnitCode = "REMOVE-TEST-001";
+    warehouse.location = "AMSTERDAM-001";
+    warehouse.capacity = 50;
+    warehouse.stock = 10;
+    warehouse.createdAt = java.time.LocalDateTime.now();
+    
+    createWarehouseUseCase.create(warehouse);
+    
+    // Verify it exists
+    assertNotNull(warehouseRepository.findByBusinessUnitCode("REMOVE-TEST-001"));
+    
+    // Remove it
+    warehouseRepository.remove(warehouse);
+    
+    // Verify it's gone
+    assertNull(warehouseRepository.findByBusinessUnitCode("REMOVE-TEST-001"));
+  }
+
   private void createWarehouse(String code, String location, int capacity) {
     Warehouse warehouse = new Warehouse();
     warehouse.businessUnitCode = code;

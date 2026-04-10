@@ -21,6 +21,9 @@ public class WarehouseResourceImpl implements WarehouseResource {
   @Inject private CreateWarehouseOperation createWarehouseOperation;
   @Inject private ArchiveWarehouseOperation archiveWarehouseOperation;
   @Inject private ReplaceWarehouseOperation replaceWarehouseOperation;
+  @Inject private com.fulfilment.application.monolith.warehouses.domain.ports.SearchWarehouseOperation searchWarehouseOperation;
+
+  private static final org.jboss.logging.Logger LOG = org.jboss.logging.Logger.getLogger(WarehouseResourceImpl.class);
 
   @Override
   public List<Warehouse> listAllWarehousesUnits() {
@@ -110,8 +113,9 @@ public class WarehouseResourceImpl implements WarehouseResource {
       String sortOrder,
       BigInteger page,
       BigInteger pageSize) {
-    return warehouseRepository
-        .findFiltered(
+    LOG.infof("Request to search warehouses: location=%s, minCapacity=%s, maxCapacity=%s", location, minCapacity, maxCapacity);
+    return searchWarehouseOperation
+        .search(
             location,
             minCapacity != null ? minCapacity.intValue() : null,
             maxCapacity != null ? maxCapacity.intValue() : null,
