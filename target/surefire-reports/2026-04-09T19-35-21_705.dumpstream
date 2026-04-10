@@ -1,4 +1,4 @@
-# Created at 2026-04-09T18:14:22.434
+# Created at 2026-04-09T19:35:21.903
 Boot Manifest-JAR contains absolute paths in classpath 'D:\Projects\hackathon-java-assignment-20260409T082532Z-3-001\hackathon-java-assignment\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 'other' has different root

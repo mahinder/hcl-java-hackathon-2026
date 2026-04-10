@@ -127,12 +127,13 @@ import java.util.List;
   private Warehouse toWarehouseResponse(
       com.fulfilment.application.monolith.warehouses.domain.models.Warehouse warehouse) {
 <span class="fc" id="L129">    var response = new Warehouse();</span>
-<span class="fc" id="L130">    response.setBusinessUnitCode(warehouse.businessUnitCode);</span>
-<span class="fc" id="L131">    response.setLocation(warehouse.location);</span>
-<span class="fc" id="L132">    response.setCapacity(warehouse.capacity);</span>
-<span class="fc" id="L133">    response.setStock(warehouse.stock);</span>
+<span class="fc" id="L130">    response.setId(warehouse.businessUnitCode);</span>
+<span class="fc" id="L131">    response.setBusinessUnitCode(warehouse.businessUnitCode);</span>
+<span class="fc" id="L132">    response.setLocation(warehouse.location);</span>
+<span class="fc" id="L133">    response.setCapacity(warehouse.capacity);</span>
+<span class="fc" id="L134">    response.setStock(warehouse.stock);</span>
 
-<span class="fc" id="L135">    return response;</span>
+<span class="fc" id="L136">    return response;</span>
   }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
